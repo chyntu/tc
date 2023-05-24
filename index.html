@@ -1,0 +1,100 @@
+<html>
+
+    <head>
+        <title>
+            Temperature Convereter
+        </title>
+    </head>
+
+    <script>
+
+        function fk(val)
+        {
+            let c = parseFloat(val);
+            let fh = (c * (9/5) + 32).toFixed(2);
+            let kn = (c + 273.15).toFixed(2);
+            document.getElementById('f').value=fh;
+            document.getElementById('k').value=kn;
+        }
+
+        function ck(val)
+        {
+            let f = parseFloat(val);
+            let cl = ((f - 32) * (5/9)).toFixed(2);
+            let kn = ((f - 32) * (5/9) + 273.15).toFixed(2);
+            document.getElementById('c').value=cl;
+            document.getElementById('k').value=kn;
+        }
+
+        function cf(val)
+        {
+            let k = parseFloat(val);
+            let cl = (k - 273.15).toFixed(2);
+            let fh = ((k - 273.15) * (9/5) + 32).toFixed(2);
+            document.getElementById('c').value=cl;
+            document.getElementById('f').value=fh;
+        }
+
+    </script>
+
+    <style>
+
+        body { background-color: #85FFBD; } 
+        body { background-image: linear-gradient(345deg, #85FFBD 0%, #FFFB7D 100%); }
+    
+        @font-face
+        { 
+            font-family: ‘CenturyGothic’; 
+            src: url(‘https://fonts.googleapis.com/css?family=Century+Gothic’); 
+        }
+        
+        h3
+        { color :black;
+          text-align: center;
+          font-family: 'Century Gothic',sans-serif;
+          font-weight: lighter;
+          font-size: 50px;
+          position: relative;
+          top: 150px;
+        }
+
+        form
+        {
+            text-align: center;
+        }
+
+        input,label
+        {
+            position:relative;
+            font-family: 'Century Gothic',sans-serif;
+            top:200px;
+        }
+
+        input
+        {
+            background-color: transparent;
+        }
+
+        label
+        {
+            font-size: larger; 
+            width:150px;
+            display:inline-block;
+        }
+
+    </style>
+
+    <body>
+        <h3>CONVERTER</h3>
+    </body>
+
+    <form>
+        <label>Celcius (°C)</label>
+        <input type="number" id='c' onchange="fk(this.value)"></input><br></br>
+        <label>Fahrenheit (°F)</label>
+        <input type="number" id='f' onchange="ck(this.value)"></input><br></br>
+        <label>Kelvin (°K)</label>
+        <input type="number" id='k' onchange="cf(this.value)"></input>
+    </form>
+    
+</html>
